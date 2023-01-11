@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+footer a:hover {
+  filter: invert(80%) sepia(37%) saturate(7048%) hue-rotate(132deg)
+    brightness(105%) contrast(104%);
+    color:  #202a3c,
+}
+
+#navbar a.active {
+  color: hsl(161, 100%, 44%);
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
