@@ -1,0 +1,23 @@
+<div
+  class="layout-container font-opensans dark:bg-darkBlue mx-auto min-h-screen w-full py-2 dark:text-white"
+>
+  <div class="layout-header">
+    <ng-container *ngTemplateOutlet="defaultHeader"></ng-container>
+  </div>
+  <div class="layout-body">
+    <ng-container *ngTemplateOutlet="mainArea || defaultBody"></ng-container>
+  </div>
+  <div class="layout-footer">
+    <ng-container *ngTemplateOutlet="defaultFooter"></ng-container>
+  </div>
+</div>
+
+<ng-template #defaultHeader>
+  <app-header></app-header>
+</ng-template>
+
+<ng-template #defaultBody></ng-template>
+
+<ng-template #defaultFooter>
+  <app-footer></app-footer>
+</ng-template>
