@@ -18,6 +18,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/contact/contact.module').then((m) => m.ContactModule),
   },
+  {
+    path: 'signup',
+    loadChildren: () =>
+      import('./modules/signup/signup.module').then((m) => m.SignupModule),
+  },
 ];
 
 @NgModule({
