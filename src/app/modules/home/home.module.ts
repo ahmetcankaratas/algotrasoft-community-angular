@@ -6,9 +6,11 @@ import { HomeRoutingModule } from './home.routing';
 import { HeroComponent } from './page/home/hero/hero.component';
 import { NgParticlesModule } from 'ng-particles';
 import { ParticleComponent } from './page/home/particle/particle.component';
+import { AboutComponent } from './page/home/about/about.component';
+import { WorkComponent } from './page/home/work/work.component';
 
 @NgModule({
-  declarations: [HomeComponent, HeroComponent, ParticleComponent],
+  declarations: [HomeComponent, HeroComponent, ParticleComponent, AboutComponent, WorkComponent],
   imports: [CommonModule, SharedModule, HomeRoutingModule, NgParticlesModule],
   exports: [HomeComponent, HeroComponent, ParticleComponent],
 })
