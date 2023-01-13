@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
   userData = {
@@ -12,23 +13,35 @@ export class SignupComponent {
     lastName: '',
     email: '',
     password: '',
+  };
+  constructor(private authService: AuthService) {}
 
-  }
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  onSubmit(form: NgForm){
-    if (!form.valid){
+  onSubmit(form: NgForm) {
+    if (!form.valid) {
       console.log(form);
-      return;}
+      return;
+    }
 
     this.userData.firstName = form.value.firstName;
     this.userData.lastName = form.value.lastName;
     this.userData.email = form.value.email;
     this.userData.password = form.value.password;
     console.log(form.value);
+
+    const email = form.value.email;
+    const password = form.value.password;
+
+    this.authService.signup(email, password).subscribe(
+      (responseData) => {
+        console.log(responseData);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
     form.reset();
   }
 }

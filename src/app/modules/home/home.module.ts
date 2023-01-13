@@ -11,7 +11,6 @@ import { WorkComponent } from './page/home/work/work.component';
 
 @NgModule({
   declarations: [HomeComponent, HeroComponent, ParticleComponent, AboutComponent, WorkComponent],
-  imports: [CommonModule, SharedModule, HomeRoutingModule, NgParticlesModule],
-  exports: [HomeComponent, HeroComponent, ParticleComponent],
+  imports: [CommonModule, SharedModule, HomeRoutingModule, NgParticlesModule]
 })
 export class HomeModule {}

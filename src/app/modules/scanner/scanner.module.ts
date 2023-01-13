@@ -7,6 +7,5 @@ import { SharedModule } from 'src/app/shared/shared.module';
 @NgModule({
   declarations: [ScannerComponent],
   imports: [CommonModule, SharedModule, ScannerRoutingModule],
-  exports: [ScannerComponent],
 })
 export class ScannerModule {}

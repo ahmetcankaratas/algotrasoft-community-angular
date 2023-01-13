@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -19,9 +19,9 @@ const routes: Routes = [
       import('./modules/contact/contact.module').then((m) => m.ContactModule),
   },
   {
-    path: 'signup',
+    path: 'auth',
     loadChildren: () =>
-      import('./modules/signup/signup.module').then((m) => m.SignupModule),
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
 ];
 
@@ -29,6 +29,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       anchorScrolling: 'enabled',
+      preloadingStrategy: PreloadAllModules,
     }),
   ],
   exports: [RouterModule],
