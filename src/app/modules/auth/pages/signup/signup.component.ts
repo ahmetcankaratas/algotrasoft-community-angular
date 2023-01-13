@@ -14,6 +14,9 @@ export class SignupComponent {
     email: '',
     password: '',
   };
+  isLoading = false;
+  error: string | null = null;
+
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
@@ -33,12 +36,16 @@ export class SignupComponent {
     const email = form.value.email;
     const password = form.value.password;
 
+    this.isLoading = true;
     this.authService.signup(email, password).subscribe(
       (responseData) => {
         console.log(responseData);
+        this.isLoading = false;
       },
-      (error) => {
-        console.log(error);
+      (errorMessage) => {
+        console.log(errorMessage);
+        this.error = errorMessage;
+        this.isLoading = false;
       }
     );
 

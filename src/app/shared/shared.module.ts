@@ -5,6 +5,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { CoverComponent } from './cover/cover.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -12,8 +13,15 @@ import { CoverComponent } from './cover/cover.component';
     HeaderComponent,
     FooterComponent,
     CoverComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [CommonModule, RouterModule],
-  exports: [LayoutComponent, HeaderComponent, FooterComponent, CoverComponent],
+  exports: [
+    LayoutComponent,
+    HeaderComponent,
+    FooterComponent,
+    CoverComponent,
+    LoadingSpinnerComponent,
+  ],
 })
 export class SharedModule {}
