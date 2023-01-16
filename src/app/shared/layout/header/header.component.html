@@ -14,29 +14,37 @@
     >
     <a
       routerLinkActive="active"
-      routerLink="/scanner"
-      class="tracking-widest hover:text-accentCyan"
-      >Scanner</a
-    >
-    <a
-      routerLinkActive="active"
       routerLink="/contact"
       class="tracking-widest hover:text-accentCyan"
       >Contact</a
     >
     <span>|</span>
     <a
+      *ngIf="!isAuthenticated"
       routerLinkActive="active"
       routerLink="/auth/login"
       class="tracking-widest hover:text-accentCyan"
       >Login</a
     >
     <a
+      *ngIf="isAuthenticated"
+      class="tracking-widest hover:cursor-pointer hover:text-accentCyan"
+      (click)="onLogout()"
+      >Logout</a
+    >
+
+    <a
+      *ngIf="!isAuthenticated"
       routerLink="/auth/signup"
       class="rounded-full bg-darkCyan px-8 py-3 tracking-widest hover:bg-accentCyan hover:opacity-70"
       >Sign Up
     </a>
-
+    <a
+      *ngIf="isAuthenticated"
+      routerLink="/scanner"
+      class="pointer rounded-full bg-darkCyan px-8 py-3 tracking-widest hover:bg-accentCyan hover:opacity-70"
+      >Scanner</a
+    >
     <button
       id="theme-toggle"
       className="none 5 rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:ring-gray-700 dark:hover:bg-gray-700"

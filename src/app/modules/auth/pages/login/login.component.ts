@@ -32,7 +32,7 @@ export class LoginComponent {
 
     this.isLoading = true;
 
-    this.authService.login(email, password).subscribe(
+     this.authService.login(email, password).subscribe(
       (responseData) => {
         console.log(responseData);
         this.isLoading = false;

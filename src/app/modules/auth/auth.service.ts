@@ -1,8 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { catchError, Subject, tap, throwError } from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  Observable,
+  Subject,
+  tap,
+  throwError,
+} from 'rxjs';
 import { User } from './user.module';
+import { Router } from '@angular/router';
 
 interface AuthResponseData {
   kind: string;
@@ -18,9 +26,8 @@ interface AuthResponseData {
   providedIn: 'root',
 })
 export class AuthService {
-  user = new Subject<User>();
-
-  constructor(private http: HttpClient) {}
+  user = new BehaviorSubject<User | null>(null);
+  constructor(private http: HttpClient, private router: Router) {}
 
   signup(email: string, password: string) {
     return this.http
@@ -70,6 +77,40 @@ export class AuthService {
       );
   }
 
+  autoLogin() {
+    const userData = localStorage.getItem('userData');
+
+    if (!userData) {
+      return;
+    }
+
+    const loadedUser: {
+      email: string;
+      id: string;
+      _token: string;
+      _tokenExpirationDate: string;
+    } = JSON.parse(userData);
+
+    const user = new User(
+      loadedUser.email,
+      loadedUser.id,
+      loadedUser._token,
+      new Date(loadedUser._tokenExpirationDate)
+    );
+
+    if (user.token) {
+      if (user.token) {
+        this.user.next(user);
+      }
+    }
+  }
+
+  logout() {
+    this.user.next(null);
+    this.router.navigate(['/auth/login']);
+    localStorage.removeItem('userData');
+  }
+
   private handleAuthentication(
     email: string,
     userId: string,
@@ -79,6 +120,7 @@ export class AuthService {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
     this.user.next(user);
+    localStorage.setItem('userData', JSON.stringify(user));
   }
 
   private handleError(errorRes: HttpErrorResponse) {
