@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class SignupComponent {
   isLoading = false;
   error: string | null = null;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -41,6 +42,7 @@ export class SignupComponent {
       (responseData) => {
         console.log(responseData);
         this.isLoading = false;
+        this.router.navigate(['/scanner']);
       },
       (errorMessage) => {
         console.log(errorMessage);
