@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MarketResponseResult } from 'src/app/data/types/market';
 import { ResultService } from 'src/app/data/service/result.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-result-list',
@@ -9,11 +10,17 @@ import { ResultService } from 'src/app/data/service/result.service';
 })
 export class ResultListComponent implements OnInit {
   results: MarketResponseResult[] = [];
+  subscription: Subscription = new Subscription;
 
   constructor(private resultService: ResultService) {}
 
   ngOnInit() {
-    console.log(this.results);
+    this.subscription = this.resultService.resultsChanged
+    .subscribe(
+      (results: MarketResponseResult[]) => {
+        this.results = results;
+      }
+    );
     this.results = this.resultService.getResults();
   }
 }
