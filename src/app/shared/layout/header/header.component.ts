@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/modules/auth/auth.service';
+import { Observable, Subscription } from 'rxjs';
+import { AuthService } from 'src/app/core/service/auth.service';
+import { ThemeService } from 'src/app/core/service/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -9,12 +10,20 @@ import { AuthService } from 'src/app/modules/auth/auth.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
+  isDarkTheme = false;
   private userSub: Subscription = new Subscription();
+  private themeSub: Subscription = new Subscription();
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit() {
-    console.log("rendering")
+    this.themeSub = this.themeService.theme.subscribe((theme) => {
+      this.isDarkTheme = theme === 'dark' ? true : false;
+    });
+
     this.userSub = this.authService.user.subscribe((user) => {
       // this.isAuthenticated = !user ? false : true;
       this.isAuthenticated = !!user;
@@ -25,7 +34,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authService.logout();
   }
 
+  onToggleTheme() {
+    this.themeService.setTheme();
+  }
+
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
+    this.themeSub.unsubscribe();
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../auth.service';
+import { AuthService } from 'src/app/core/service/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,12 +9,6 @@ import { AuthService } from '../../auth.service';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
-  userData = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-  };
   isLoading = false;
   error: string | null = null;
 
@@ -27,12 +21,6 @@ export class SignupComponent {
       console.log(form);
       return;
     }
-
-    this.userData.firstName = form.value.firstName;
-    this.userData.lastName = form.value.lastName;
-    this.userData.email = form.value.email;
-    this.userData.password = form.value.password;
-    console.log(form.value);
 
     const email = form.value.email;
     const password = form.value.password;

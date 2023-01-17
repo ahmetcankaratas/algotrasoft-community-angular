@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from './modules/auth/auth.service';
+import { AuthService } from './core/service/auth.service';
+import { ThemeService } from './core/service/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,13 @@ import { AuthService } from './modules/auth/auth.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit() {
     this.authService.autoLogin();
+    this.themeService.initialTheme();
   }
 }

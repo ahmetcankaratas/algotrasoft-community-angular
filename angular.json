@@ -27,7 +27,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/typewriter-effect/dist/core.js",
+              "src/assets/custom/typewriter.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -96,7 +99,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/typewriter-effect/dist/core.js",
+              "src/assets/custom/typewriter.js"
+            ]
           }
         }
       }
