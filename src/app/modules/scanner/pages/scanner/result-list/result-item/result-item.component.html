@@ -1,0 +1,33 @@
+<li class="mx-auto w-10/12">
+  <a
+    [routerLink]="['/scanner', result.id-1]"
+    class="pointer flex flex-row justify-between rounded-lg bg-gray-100 p-10 duration-200 hover:scale-105 dark:bg-darkBlue3"
+  >
+    <div class="group flex flex-col space-y-3">
+      <a
+        [routerLink]="['/scanner', result.id-1]"
+        class="text-lg font-bold md:text-2xl"
+      >
+        {{ result?.name }}
+      </a>
+      <h4 class="md:text-md text-sm">{{ result.symbol }}</h4>
+    </div>
+    <div class="group flex flex-col space-y-3">
+      <div
+        class="md:text-md rounded-xl bg-gray-300 p-1 px-3 text-sm dark:bg-darkBlue1"
+      >
+        yearly apy
+      </div>
+      <h4
+        [ngClass]="{
+          'text-darkCyan': result.return_yearly_1 > 0,
+          'text-red-500': result.return_yearly_1 < 0
+        }"
+        class="text-md md:text-l text-center font-bold"
+      >
+        <span class="text-lg md:text-xl">%</span>
+        {{ result.return_yearly_1.toFixed(0) }}
+      </h4>
+    </div>
+  </a>
+</li>
