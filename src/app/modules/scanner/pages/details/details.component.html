@@ -1,10 +1,7 @@
 <app-layout [mainArea]="mainArea"></app-layout>
 
 <ng-template #mainArea>
-  <app-cover
-    header="Scanner"
-    description="Backtesting Results of Ross Hook Trading Strategy"
-  ></app-cover>
+  <app-cover [header]="data.name" description="Result Details"></app-cover>
   <div class="container mx-auto px-6 pt-12 pb-20 md:pb-24">
     <div
       *ngIf="isLoading"
@@ -12,7 +9,7 @@
     >
       <app-loading-spinner></app-loading-spinner>
     </div>
-    <app-result-details *ngIf="!isLoading"></app-result-details>
+    <app-result-details *ngIf="!isLoading" [data]="data"></app-result-details>
     <app-back-button></app-back-button>
   </div>
 </ng-template>

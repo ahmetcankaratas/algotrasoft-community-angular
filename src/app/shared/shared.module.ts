@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { CoverComponent } from './cover/cover.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { BackButtonComponent } from './back-button/back-button.component';
+import { FilterPipe } from './filter/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { BackButtonComponent } from './back-button/back-button.component';
     CoverComponent,
     LoadingSpinnerComponent,
     BackButtonComponent,
+    FilterPipe,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -25,6 +27,7 @@ import { BackButtonComponent } from './back-button/back-button.component';
     CoverComponent,
     LoadingSpinnerComponent,
     BackButtonComponent,
+    FilterPipe,
   ],
 })
 export class SharedModule {}

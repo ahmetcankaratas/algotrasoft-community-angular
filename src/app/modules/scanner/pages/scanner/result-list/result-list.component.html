@@ -2,7 +2,7 @@
   class="mt-8 flex max-h-screen w-full flex-col space-y-8 overflow-y-scroll scrollbar scrollbar-track-gray-300 scrollbar-thumb-darkCyan dark:scrollbar-track-white"
 >
   <app-result-item
-    *ngFor="let resultEl of results;"
+    *ngFor="let resultEl of results | filter: filteredSymbol:'name'"
     [result]="resultEl"
   ></app-result-item>
 </ul>

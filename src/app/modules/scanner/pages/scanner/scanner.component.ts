@@ -9,7 +9,7 @@ import { ResultService } from 'src/app/data/service/result.service';
 })
 export class ScannerComponent implements OnInit {
   isLoading: boolean = true;
-  
+  searchQuery: string;
   constructor(
     private dataStorageService: DataStorageService,
     private resultService: ResultService

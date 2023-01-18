@@ -9,8 +9,8 @@
     <div *ngIf="isLoading" class="flex h-28 w-full items-center justify-center rounded-lg bg-gray-100 p-4 dark:bg-darkBlue3">
       <app-loading-spinner></app-loading-spinner>
     </div>
-    <app-search *ngIf="!isLoading"></app-search>
-    <app-result-list></app-result-list>
+    <app-search *ngIf="!isLoading" (filteredSymbol)="searchQuery = $event"></app-search>
+    <app-result-list [filteredSymbol]="searchQuery"></app-result-list>
   </div>
 
 </ng-template>

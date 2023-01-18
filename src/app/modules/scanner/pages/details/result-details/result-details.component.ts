@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ResultService } from 'src/app/data/service/result.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { BacktestResponseResult } from 'src/app/data/types/backtest';
 
 @Component({
@@ -8,19 +6,8 @@ import { BacktestResponseResult } from 'src/app/data/types/backtest';
   templateUrl: './result-details.component.html',
   styleUrls: ['./result-details.component.css'],
 })
-export class ResultDetailsComponent implements OnInit {
-  data: BacktestResponseResult;
-  subscription: Subscription = new Subscription();
+export class ResultDetailsComponent {
+  @Input() data: BacktestResponseResult;
 
-  constructor(private resultService: ResultService) {}
-
-  ngOnInit() {
-    this.subscription = this.resultService.detailsChanged.subscribe(
-      (details: BacktestResponseResult) => {
-        this.data = details;
-      }
-    );
-    this.data = this.resultService.getDetails();
-    console.log(this.data);
-  }
+  constructor() {}
 }

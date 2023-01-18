@@ -10,9 +10,19 @@ import { DetailsComponent } from './pages/details/details.component';
 import { ResultDetailsComponent } from './pages/details/result-details/result-details.component';
 import { BarGraphComponent } from './pages/details/bar-graph/bar-graph.component';
 import { InfoComponent } from './pages/details/info/info.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ScannerComponent, SearchComponent, ResultListComponent, ResultItemComponent, DetailsComponent, ResultDetailsComponent, BarGraphComponent, InfoComponent],
-  imports: [CommonModule, SharedModule, ScannerRoutingModule],
+  declarations: [
+    ScannerComponent,
+    SearchComponent,
+    ResultListComponent,
+    ResultItemComponent,
+    DetailsComponent,
+    ResultDetailsComponent,
+    BarGraphComponent,
+    InfoComponent,
+  ],
+  imports: [CommonModule, SharedModule, ScannerRoutingModule, FormsModule],
 })
 export class ScannerModule {}

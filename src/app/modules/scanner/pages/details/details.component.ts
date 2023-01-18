@@ -11,6 +11,7 @@ import { BacktestResponseResult } from 'src/app/data/types/backtest';
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
+  data: BacktestResponseResult;
   isLoading: boolean = true;
 
   constructor(
@@ -23,6 +24,7 @@ export class DetailsComponent implements OnInit {
     const id: number = this.route.snapshot.params['id'];
     this.dataStorageService.getBacktest(id).subscribe((results) => {
       this.resultService.setDetails(results);
+      this.data = results;
       this.isLoading = false;
     });
   }
