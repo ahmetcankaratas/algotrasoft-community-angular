@@ -8,7 +8,8 @@ import { ResultService } from 'src/app/data/service/result.service';
   styleUrls: ['./scanner.component.css'],
 })
 export class ScannerComponent implements OnInit {
-  isLoading = true;
+  isLoading: boolean = true;
+  
   constructor(
     private dataStorageService: DataStorageService,
     private resultService: ResultService

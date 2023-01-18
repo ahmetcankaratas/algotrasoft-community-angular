@@ -6,8 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./info.component.css'],
 })
 export class InfoComponent {
-  @Input() title: string = 'Not Available';
-  @Input() description: string = 'Not Available';
+  @Input() title: string;
+  @Input() description: string;
 
   constructor() {}
 
