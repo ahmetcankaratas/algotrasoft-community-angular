@@ -6,9 +6,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { SearchComponent } from './pages/scanner/search/search.component';
 import { ResultListComponent } from './pages/scanner/result-list/result-list.component';
 import { ResultItemComponent } from './pages/scanner/result-list/result-item/result-item.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { ResultDetailsComponent } from './pages/details/result-details/result-details.component';
+import { BarGraphComponent } from './pages/details/bar-graph/bar-graph.component';
+import { InfoComponent } from './pages/details/info/info.component';
 
 @NgModule({
-  declarations: [ScannerComponent, SearchComponent, ResultListComponent, ResultItemComponent],
+  declarations: [ScannerComponent, SearchComponent, ResultListComponent, ResultItemComponent, DetailsComponent, ResultDetailsComponent, BarGraphComponent, InfoComponent],
   imports: [CommonModule, SharedModule, ScannerRoutingModule],
 })
 export class ScannerModule {}

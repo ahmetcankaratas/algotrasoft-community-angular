@@ -6,6 +6,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { CoverComponent } from './cover/cover.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { BackButtonComponent } from './back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     FooterComponent,
     CoverComponent,
     LoadingSpinnerComponent,
+    BackButtonComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -22,6 +24,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     FooterComponent,
     CoverComponent,
     LoadingSpinnerComponent,
+    BackButtonComponent,
   ],
 })
 export class SharedModule {}
