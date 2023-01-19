@@ -1,7 +1,7 @@
 <app-layout [mainArea]="mainArea"></app-layout>
 
 <ng-template #mainArea>
-  <app-cover [header]="data.name" description="Result Details"></app-cover>
+  <app-cover [header]="data && data.name" description="Result Details"></app-cover>
   <div class="container mx-auto px-6 pt-12 pb-20 md:pb-24">
     <div
       *ngIf="isLoading"

@@ -23,6 +23,5 @@ export class ResultListComponent implements OnInit {
       }
     );
     this.results = this.resultService.getResults();
-    console.log(this.results);
   }
 }

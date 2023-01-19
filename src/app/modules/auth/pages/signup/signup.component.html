@@ -5,7 +5,10 @@
     <div
       class="mx-auto flex flex-col items-center justify-center px-6 py-8 lg:py-0"
     >
-      <div *ngIf="error">
+      <div
+        *ngIf="error"
+        class="rounded-lg bg-red-300 px-5 py-2.5 text-center text-sm font-medium text-white"
+      >
         <p>{{ error }}</p>
       </div>
       <div *ngIf="isLoading">
@@ -133,7 +136,7 @@
             >
             <button
               type="submit"
-              class="w-full rounded-lg bg-primary-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-accentCyan dark:hover:bg-darkCyan dark:focus:ring-primary-800 dark:disabled:cursor-not-allowed dark:disabled:bg-slate-500"
+              class="w-full rounded-lg bg-primary-600 px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-primary-300 hover:bg-primary-700 dark:bg-accentCyan dark:focus:ring-primary-800 dark:disabled:cursor-not-allowed dark:disabled:bg-slate-500 dark:hover:bg-darkCyan"
               [disabled]="!formObj.valid"
             >
               Create an account
