@@ -44,3 +44,8 @@ Thumbs.db
 # Env fiels
 .env.ts
 
+# Firebase files
+/.firebase
+/.angular
+.firebaserc
+firebase.json

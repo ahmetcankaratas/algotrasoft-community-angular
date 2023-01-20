@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './core/service/auth.service';
 import { ThemeService } from './core/service/theme.service';
 
@@ -7,7 +7,7 @@ import { ThemeService } from './core/service/theme.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private themeService: ThemeService

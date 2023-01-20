@@ -11,6 +11,7 @@ import { ThemeService } from 'src/app/core/service/theme.service';
 export class HeaderComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   isDarkTheme = false;
+  isHamburgerMenu = false;
   private userSub: Subscription = new Subscription();
   private themeSub: Subscription = new Subscription();
 
@@ -36,6 +37,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onToggleTheme() {
     this.themeService.setTheme();
+  }
+
+  onNavToggle() {
+    this.isHamburgerMenu = !this.isHamburgerMenu;
   }
 
   ngOnDestroy(): void {
