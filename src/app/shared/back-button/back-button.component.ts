@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-back-button',
@@ -7,9 +7,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./back-button.component.css'],
 })
 export class BackButtonComponent {
-  constructor(private location: Location) {}
+  constructor(private router: Router, private route:ActivatedRoute) {}
 
   goBack() {
-    this.location.back();
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 }

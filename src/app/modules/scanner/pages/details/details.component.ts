@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { DataStorageService } from 'src/app/data/service/data-storage.service';
 import { ResultService } from 'src/app/data/service/result.service';
@@ -17,7 +17,8 @@ export class DetailsComponent implements OnInit {
   constructor(
     private dataStorageService: DataStorageService,
     private resultService: ResultService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -26,6 +27,7 @@ export class DetailsComponent implements OnInit {
       this.resultService.setDetails(results);
       this.data = results;
       this.isLoading = false;
+
     });
   }
 }

@@ -1,15 +1,26 @@
 <app-layout [mainArea]="mainArea"></app-layout>
 
-<ng-template #mainArea>
-  <app-cover [header]="data && data.name" description="Result Details"></app-cover>
-  <div class="container mx-auto px-6 pt-12 pb-20 md:pb-24">
-    <div
-      *ngIf="isLoading"
-      class="flex h-28 w-full items-center justify-center rounded-lg bg-gray-100 p-4 dark:bg-darkBlue3"
-    >
-      <app-loading-spinner></app-loading-spinner>
-    </div>
-    <app-result-details *ngIf="!isLoading" [data]="data"></app-result-details>
+<ng-template #mainArea [ngSwitch]="isLoading || data != null">
+  <div *ngSwitchCase="false">
+    <app-cover header="Not Found" description=""></app-cover>
     <app-back-button></app-back-button>
+  </div>
+
+  <div *ngSwitchCase="true">
+    <app-cover
+      [header]="data && data.name"
+      description="Result Details"
+      *ngIf="isLoading || data != null"
+    ></app-cover>
+    <div class="container mx-auto px-6 pt-12 pb-20 md:pb-24">
+      <div
+        *ngIf="isLoading"
+        class="flex h-28 w-full items-center justify-center rounded-lg bg-gray-100 p-4 dark:bg-darkBlue3"
+      >
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+      <app-result-details *ngIf="!isLoading" [data]="data"></app-result-details>
+      <app-back-button></app-back-button>
+    </div>
   </div>
 </ng-template>
