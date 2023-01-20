@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BacktestResponseResult } from 'src/app/data/types/backtest';
+import { BacktestDetails } from 'src/app/shared/models/backtest.model';
 
 @Component({
   selector: 'app-result-details',
@@ -7,7 +7,7 @@ import { BacktestResponseResult } from 'src/app/data/types/backtest';
   styleUrls: ['./result-details.component.css'],
 })
 export class ResultDetailsComponent {
-  @Input() data: BacktestResponseResult;
+  @Input() data: BacktestDetails;
 
   constructor() {}
 }

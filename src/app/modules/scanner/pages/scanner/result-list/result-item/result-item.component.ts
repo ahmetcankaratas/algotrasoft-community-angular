@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { MarketResponseResult } from 'src/app/data/types/market';
+import { StockDetails } from 'src/app/shared/models/market.model';
 
 @Component({
   selector: 'app-result-item',
@@ -7,5 +7,5 @@ import { MarketResponseResult } from 'src/app/data/types/market';
   styleUrls: ['./result-item.component.css'],
 })
 export class ResultItemComponent {
-  @Input() result!: MarketResponseResult ;
+  @Input() result: StockDetails;
 }

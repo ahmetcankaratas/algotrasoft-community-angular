@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MarketResponseResult } from 'src/app/data/types/market';
+import { StockDetails } from 'src/app/shared/models/market.model';
 import { ResultService } from 'src/app/data/service/result.service';
 import { Subscription } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./result-list.component.css'],
 })
 export class ResultListComponent implements OnInit {
-  results: MarketResponseResult[] = [];
+  results: StockDetails[] = [];
   subscription: Subscription = new Subscription();
   @Input() filteredSymbol: string = '';
 
@@ -17,7 +17,7 @@ export class ResultListComponent implements OnInit {
 
   ngOnInit() {
     this.subscription = this.resultService.resultsChanged.subscribe(
-      (results: MarketResponseResult[]) => {
+      (results: StockDetails[]) => {
         console.log(results);
         this.results = results;
       }

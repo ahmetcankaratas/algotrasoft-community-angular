@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { BacktestResponseResult } from '../types/backtest';
-import { MarketResponseResult } from '../types/market';
+import { BacktestDetails } from 'src/app/shared/models/backtest.model';
+import { StockDetails } from 'src/app/shared/models/market.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ResultService {
-  resultsChanged = new Subject<MarketResponseResult[]>();
-  detailsChanged = new Subject<BacktestResponseResult>();
+  resultsChanged = new Subject<StockDetails[]>();
+  detailsChanged = new Subject<BacktestDetails>();
 
-  private results: MarketResponseResult[] = [];
-  private details: BacktestResponseResult
+  private results: StockDetails[] = [];
+  private details: BacktestDetails;
 
   getResults() {
     return this.results.slice();
   }
 
-  setResults(results: MarketResponseResult[]) {
+  setResults(results: StockDetails[]) {
     this.results = results;
     this.resultsChanged.next(this.results.slice());
   }
@@ -26,8 +26,8 @@ export class ResultService {
     return { ...this.details };
   }
 
-  setDetails(details: BacktestResponseResult) {
+  setDetails(details: BacktestDetails) {
     this.details = details;
-    this.detailsChanged.next(this.details as BacktestResponseResult);
+    this.detailsChanged.next(this.details as BacktestDetails);
   }
 }

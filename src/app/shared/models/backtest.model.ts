@@ -1,4 +1,4 @@
-export type BacktestResponseResult = {
+export class BacktestDetails {
   id: number;
   symbol: string;
   name: string;
@@ -10,6 +10,4 @@ export type BacktestResponseResult = {
   return_monthly_3: number;
   return_monthly_6: number;
   return_yearly_1: number;
-};
-
-
+}

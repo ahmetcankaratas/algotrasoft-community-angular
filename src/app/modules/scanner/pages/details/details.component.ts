@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subject } from 'rxjs';
 import { DataStorageService } from 'src/app/data/service/data-storage.service';
 import { ResultService } from 'src/app/data/service/result.service';
-import { BacktestResponseResult } from 'src/app/data/types/backtest';
+import { BacktestDetails } from 'src/app/shared/models/backtest.model';
 
 @Component({
   selector: 'app-details',
@@ -11,7 +10,7 @@ import { BacktestResponseResult } from 'src/app/data/types/backtest';
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
-  data: BacktestResponseResult;
+  data: BacktestDetails;
   isLoading: boolean = true;
 
   constructor(
@@ -27,7 +26,6 @@ export class DetailsComponent implements OnInit {
       this.resultService.setDetails(results);
       this.data = results;
       this.isLoading = false;
-
     });
   }
 }
