@@ -11,6 +11,8 @@ import { Subscription } from 'rxjs';
 export class ResultListComponent implements OnInit {
   results: StockDetails[] = [];
   subscription: Subscription = new Subscription();
+  visibilityStatus: { [key: number]: any } = {};
+
   @Input() filteredSymbol: string = '';
 
   constructor(private resultService: ResultService) {}
@@ -23,5 +25,10 @@ export class ResultListComponent implements OnInit {
       }
     );
     this.results = this.resultService.getResults();
+  }
+
+  onVisibilityChanged(index: number, status: any) {
+    this.visibilityStatus[index] = status;
+    console.log(this.visibilityStatus);
   }
 }

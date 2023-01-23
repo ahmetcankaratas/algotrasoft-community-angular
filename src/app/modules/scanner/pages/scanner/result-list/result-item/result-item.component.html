@@ -1,11 +1,18 @@
-<li class="mx-auto w-10/12">
+<div
+  *ngIf="isLoading"
+  class="mx-auto flex h-28 w-10/12 items-center justify-center rounded-lg bg-gray-100 p-4 dark:bg-darkBlue3"
+>
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<ng-container *ngIf="!isLoading">
   <a
-    [routerLink]="['/scanner', result.id-1]"
+    [routerLink]="['/scanner', result.id - 1]"
     class="pointer flex flex-row justify-between rounded-lg bg-gray-100 p-10 duration-200 hover:scale-105 dark:bg-darkBlue3"
   >
     <div class="group flex flex-col space-y-3">
       <a
-        [routerLink]="['/scanner', result.id-1]"
+        [routerLink]="['/scanner', result.id - 1]"
         class="text-lg font-bold md:text-2xl"
       >
         {{ result.name }}
@@ -30,4 +37,4 @@
       </h4>
     </div>
   </a>
-</li>
+</ng-container>

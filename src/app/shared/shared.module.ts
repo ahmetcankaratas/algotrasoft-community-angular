@@ -8,6 +8,7 @@ import { CoverComponent } from './cover/cover.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { BackButtonComponent } from './back-button/back-button.component';
 import { FilterPipe } from './filter/filter.pipe';
+import { ObserveVisibilityDirective } from './directives/observe-visibility.directive';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FilterPipe } from './filter/filter.pipe';
     LoadingSpinnerComponent,
     BackButtonComponent,
     FilterPipe,
+    ObserveVisibilityDirective,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -28,6 +30,7 @@ import { FilterPipe } from './filter/filter.pipe';
     LoadingSpinnerComponent,
     BackButtonComponent,
     FilterPipe,
+    ObserveVisibilityDirective,
   ],
 })
 export class SharedModule {}

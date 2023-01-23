@@ -1,8 +1,19 @@
 <ul
   class="mt-8 flex max-h-screen w-full flex-col space-y-8 overflow-y-scroll scrollbar scrollbar-track-gray-300 scrollbar-thumb-darkCyan dark:scrollbar-track-white"
 >
-  <app-result-item
+  <ng-container
     *ngFor="let resultEl of results | filter: filteredSymbol:'name'"
-    [result]="resultEl"
-  ></app-result-item>
+  >
+    <li
+      class="mx-auto w-10/12"
+      observeVisibility
+      [debounceTime]="300"
+      (visible)="onVisibilityChanged(resultEl.id, true)"
+    >
+      <app-result-item
+        *ngIf="visibilityStatus && visibilityStatus[resultEl.id]"
+        [id]="resultEl.id"
+      ></app-result-item>
+    </li>
+  </ng-container>
 </ul>

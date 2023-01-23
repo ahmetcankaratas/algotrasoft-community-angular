@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     ResultDetailsComponent,
     BarGraphComponent,
     InfoComponent,
+    
   ],
   imports: [CommonModule, SharedModule, ScannerRoutingModule, FormsModule],
 })
