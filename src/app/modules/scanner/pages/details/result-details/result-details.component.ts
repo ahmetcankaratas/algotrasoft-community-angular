@@ -3,8 +3,7 @@ import { BacktestDetails } from 'src/app/shared/models/backtest.model';
 
 @Component({
   selector: 'app-result-details',
-  templateUrl: './result-details.component.html',
-  styleUrls: ['./result-details.component.css'],
+  templateUrl: './result-details.component.html'
 })
 export class ResultDetailsComponent {
   @Input() data: BacktestDetails;

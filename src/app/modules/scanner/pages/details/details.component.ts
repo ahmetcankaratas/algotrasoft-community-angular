@@ -7,7 +7,6 @@ import { BacktestDetails } from 'src/app/shared/models/backtest.model';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
   data: BacktestDetails;
