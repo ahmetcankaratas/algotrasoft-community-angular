@@ -5,8 +5,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-result-list',
-  templateUrl: './result-list.component.html',
-  styleUrls: ['./result-list.component.css'],
+  templateUrl: './result-list.component.html'
 })
 export class ResultListComponent implements OnInit {
   results: StockDetails[] = [];

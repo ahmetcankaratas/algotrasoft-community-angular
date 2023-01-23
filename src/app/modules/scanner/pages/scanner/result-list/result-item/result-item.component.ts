@@ -4,8 +4,7 @@ import { BacktestDetails } from 'src/app/shared/models/backtest.model';
 
 @Component({
   selector: 'app-result-item',
-  templateUrl: './result-item.component.html',
-  styleUrls: ['./result-item.component.css'],
+  templateUrl: './result-item.component.html'
 })
 export class ResultItemComponent {
   result: BacktestDetails;

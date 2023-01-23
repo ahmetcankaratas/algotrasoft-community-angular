@@ -4,8 +4,7 @@ import { ResultService } from 'src/app/data/service/result.service';
 
 @Component({
   selector: 'app-scanner',
-  templateUrl: './scanner.component.html',
-  styleUrls: ['./scanner.component.css'],
+  templateUrl: './scanner.component.html'
 })
 export class ScannerComponent implements OnInit {
   isLoading: boolean = true;
