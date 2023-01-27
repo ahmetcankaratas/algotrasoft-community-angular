@@ -4,8 +4,7 @@ import { loadFull } from "tsparticles";
 
 @Component({
   selector: 'app-particles',
-  templateUrl: './particle.component.html',
-  styleUrls: ['./particle.component.css'],
+  templateUrl: './particle.component.html'
 })
 export class ParticleComponent {
   id = 'tsparticles';
