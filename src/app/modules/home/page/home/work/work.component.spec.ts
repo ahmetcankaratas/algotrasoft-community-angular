@@ -69,11 +69,11 @@ describe('WorkComponent', () => {
       'assets/images/icon-arrow.svg',
     ];
 
-    const describeEl = el.queryAll(By.css('img'));
+    const iconEl = el.queryAll(By.css('img'));
 
-    expect(describeEl).toBeTruthy('Missing images');
+    expect(iconEl).toBeTruthy('Missing images');
     iconsUrl.forEach((url, index) => {
-      expect(describeEl[index].nativeElement.src).toContain(
+      expect(iconEl[index].nativeElement.src).toContain(
         url,
         `Unexpected icon at index ${index}`
       );

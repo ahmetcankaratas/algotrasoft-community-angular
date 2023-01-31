@@ -52,10 +52,10 @@ describe('AboutComponent', () => {
       'assets/images/icon-arrow.svg',
     ];
 
-    const describeEl = el.queryAll(By.css('img'));
+    const imageEl = el.queryAll(By.css('img'));
 
-    expect(describeEl).toBeTruthy('Missing images');
-    expect(describeEl[0].nativeElement.src).toContain(imagesUrl[0],'Unexpected first description');
-    expect(describeEl[1].nativeElement.src).toContain(imagesUrl[1],'Unexpected second description');
+    expect(imageEl).toBeTruthy('Missing images');
+    expect(imageEl[0].nativeElement.src).toContain(imagesUrl[0],'Unexpected first description');
+    expect(imageEl[1].nativeElement.src).toContain(imagesUrl[1],'Unexpected second description');
   });
 });

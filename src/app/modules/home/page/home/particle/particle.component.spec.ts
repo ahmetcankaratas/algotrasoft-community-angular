@@ -24,5 +24,4 @@ describe('ParticleComponent', () => {
   it('should create the particles animation', () => {
     expect(component).toBeTruthy();
   });
-
 });
