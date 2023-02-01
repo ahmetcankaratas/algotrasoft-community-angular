@@ -41,18 +41,17 @@ describe('DataStorageService', () => {
   it('should retrieve backtest details', async () => {
     const id = 3;
     dataStorageService.getBacktest(id).subscribe((data) => {
-      console.log(data);
       expect(data).toBeTruthy('No backtest returned');
 
       expect(data.id).toBe(4, 'Incorrect number of backtests');
     });
 
     const req = httpTestingController.expectOne(
-      `https://algotrasoft-community-angular-default-rtdb.europe-west1.firebasedatabase.app/backtests/results/3.json`
+      `https://algotrasoft-community-angular-default-rtdb.europe-west1.firebasedatabase.app/backtests/results/${id}.json`
     );
 
     expect(req.request.method).toEqual('GET');
-    req.flush(BACKTESTS.backtests.results[3]);
+    req.flush(BACKTESTS.backtests.results[id]);
   });
 
   afterEach(() => {
