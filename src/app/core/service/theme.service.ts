@@ -6,8 +6,13 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ThemeService {
   theme = new BehaviorSubject<string>('dark');
-  root = window.document.documentElement;
-  constructor() {}
+  root: any
+  constructor() {
+    if (typeof window !== 'undefined') {
+      this.root = window.document.documentElement;
+    }
+  }
+
 
   initialTheme() {
     const colorTheme: string | null = localStorage.getItem('theme');

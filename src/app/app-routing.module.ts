@@ -37,9 +37,10 @@ export const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      anchorScrolling: 'enabled',
-      preloadingStrategy: PreloadAllModules,
-    }),
+    anchorScrolling: 'enabled',
+    preloadingStrategy: PreloadAllModules,
+    initialNavigation: 'enabledBlocking'
+}),
   ],
   exports: [RouterModule],
 })

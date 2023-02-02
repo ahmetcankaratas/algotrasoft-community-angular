@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/algotrasoft-community-angular",
+            "outputPath": "dist/algotrasoft-community-angular/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -104,6 +104,65 @@
               "src/assets/custom/typewriter.js"
             ]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/algotrasoft-community-angular/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "algotrasoft-community-angular:build:development",
+              "serverTarget": "algotrasoft-community-angular:server:development"
+            },
+            "production": {
+              "browserTarget": "algotrasoft-community-angular:build:production",
+              "serverTarget": "algotrasoft-community-angular:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "algotrasoft-community-angular:build:production",
+              "serverTarget": "algotrasoft-community-angular:server:production"
+            },
+            "development": {
+              "browserTarget": "algotrasoft-community-angular:build:development",
+              "serverTarget": "algotrasoft-community-angular:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

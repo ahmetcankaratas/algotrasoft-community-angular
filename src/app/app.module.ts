@@ -9,7 +9,7 @@ import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, SharedModule, AppRoutingModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), HttpClientModule, SharedModule, AppRoutingModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
